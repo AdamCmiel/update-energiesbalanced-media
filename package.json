@@ -1,18 +1,28 @@
 {
-  "name": "lisa-recent-media",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.coffee",
+  "name": "Energies-Balanced-Back-End",
+  "version": "1.0.0",
+  "author": "Adam Cmiel <adamcmiel@gmail.com>",
+  "description": "Content update services for Energies Balanced app",
+  "engines": {
+    "node": "0.11.13"
+  },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --harmony --use_strict --harmony_generators index.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.0.11",
+    "co": "^3.1.0",
+    "co-fs": "^1.2.0",
+    "co-request": "^0.2.0",
     "coffee-script": "^1.7.1",
     "express": "^4.8.2",
     "instagram-node": "^0.4.3",
-    "request": "^2.39.0"
+    "jade": "^1.5.0",
+    "request": "^2.39.0",
+    "thunkify": "^2.1.2",
+    "xml2js": "^0.4.4"
   }
 }

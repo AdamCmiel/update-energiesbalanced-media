@@ -1,9 +1,5 @@
 ig = require('instagram-node').instagram()
-aws = require 'aws-sdk'
-aws.config = new aws.Config
-  accessKeyId: process.env.AWS_ACCESS_KEY
-  secretAccessKey: process.env.AWS_SECRET_KEY
-  region: 'us-west-2'
+aws = require './aws'
 
 s3 = new aws.S3({apiVersion: '2006-03-01'});
 
@@ -32,7 +28,7 @@ module.exports = (req, res) ->
     s3.putObject params, (err, data) ->
       unless err
         console.log "S3 upload successful!", "Date: #{new Date()}", data
-        res.send data
+        res.render "index.jade", data: JSON.stringify data
       else
         console.error "Error uploading to S3:", "Date: #{new Date()}", "Error Message: #{err.message}"
         res.status 500
