@@ -13,7 +13,7 @@ app.get("/update-podcast-feed", require("./routes/podcast"));
 
 // Render the root to show content update options
 app.get("/", function(req, res) {
-	res.render("index.jade", {data: 'Click a link to update one of the feeds'});
+    res.render("index.jade", {data: 'Click a link to update one of the feeds'});
 });
 
 // Listen on port provided by Heroku
