@@ -1,7 +1,5 @@
 ig = require('instagram-node').instagram()
-aws = require './aws'
-
-s3 = new aws.S3({apiVersion: '2006-03-01'});
+upload = require "./s3upload"
 
 client_id = process.env.EB_IG_CLIENT_ID
 ig.use client_id: client_id, client_secret: process.env.EB_IG_SECRET_KEY
@@ -25,7 +23,7 @@ module.exports = (req, res) ->
       ACL: "public-read"
       Body: dataStream
 
-    s3.putObject params, (err, data) ->
+    upload params, (err, data) ->
       unless err
         console.log "S3 upload successful!", "Date: #{new Date()}", data
         res.render "index.jade", data: JSON.stringify data
